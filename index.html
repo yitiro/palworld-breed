@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Dropdowns</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+
+        select {
+            width: 300px;
+            padding: 5px;
+            margin-bottom: 10px;
+            /* Adds space below each dropdown */
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #fff;
+        }
+
+        .sources option,
+        .excludes option {
+            padding: 2px 5px;
+            /* Adds padding inside each option */
+            margin-top: 2px;
+            /* Adds space above each option */
+            background-color: #f9f9f9;
+            /* Light grey background */
+        }
+
+        button {
+            padding: 10px 15px;
+            margin-right: 5px;
+            /* Adds space between buttons */
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+
+        #resultText {
+            white-space: pre-line;
+            /* Maintains text formatting with line breaks */
+            background-color: #f4f4f4;
+            /* Light grey background to differentiate the area */
+            padding: 10px;
+            /* Padding inside the div */
+            border: 1px solid #ccc;
+            /* Adds a border similar to a textarea */
+            border-radius: 4px;
+            /* Rounds the corners */
+            margin-top: 10px;
+            /* Space above the div */
+            max-width: 100%;
+            /* Ensures the div doesn't overflow horizontally */
+        }
+    </style>
+</head>
+
+<body>
+
+    <label for="target">最终配种产出 - Target Pal:</label>
+    <br />
+    <select id="target">
+        <!-- Options will be added here -->
+        <option value="001">001 棉悠悠 lamball</option>
+        <option value="002">002 搗蛋貓 cattiva</option>
+        <option value="003">003 皮皮雞 chikipi</option>
+        <option value="004">004 翠葉鼠 lifmunk</option>
+        <option value="005">005 火絨狐 foxparks</option>
+        <option value="006">006 衝浪鴨 fuack</option>
+        <option value="007">007 伏特喵 sparkit</option>
+        <option value="008">008 新葉猿 tanzee</option>
+        <option value="009">009 燎火鹿 rooby</option>
+        <option value="010">010 企丸丸 pengullet</option>
+        <option value="011">011 企丸王 penking</option>
+        <option value="012">012 電棘鼠 jolthog</option>
+        <option value="012B">012B 電棘鼠 (冰) jolthog cryst</option>
+        <option value="013">013 葉泥泥 gumoss</option>
+        <option value="013B">013B None gumoss (special)</option>
+        <option value="014">014 玉藻狐 vixy</option>
+        <option value="015">015 啼卡爾 hoocrates</option>
+        <option value="016">016 壺小象 teafant</option>
+        <option value="017">017 瞅什魔 depresso</option>
+        <option value="018">018 米露菲 cremis</option>
+        <option value="019">019 寐魔 daedream</option>
+        <option value="020">020 草莽豬 rushoar</option>
+        <option value="021">021 露娜蒂 nox</option>
+        <option value="022">022 遁地鼠 fuddler</option>
+        <option value="023">023 勾魂魷 killamari</option>
+        <option value="024">024 喵絲特 mau</option>
+        <option value="024B">024B 冰絲特 (冰) mau cryst</option>
+        <option value="025">025 魯米兒 celaray</option>
+        <option value="026">026 獵狼 direhowl</option>
+        <option value="027">027 炸蛋鳥 tocotoco</option>
+        <option value="028">028 波娜兔 flopie</option>
+        <option value="029">029 波霸牛 mozzarina</option>
+        <option value="030">030 荊棘魔仙 bristla</option>
+        <option value="031">031 鯊小子 gobfin</option>
+        <option value="031B">031B 紅小鯊 (火) gobfin ignis</option>
+        <option value="032">032 吊縛靈 hangyu</option>
+        <option value="032B">032B 冰縛靈 (冰) hangyu cryst</option>
+        <option value="033">033 葉胖達 mossanda</option>
+        <option value="033B">033B 雷胖達 (雷) mossanda lux</option>
+        <option value="034">034 棉花糖 woolipop</option>
+        <option value="035">035 灌木羊 caprity</option>
+        <option value="036">036 美露帕 melpaca</option>
+        <option value="037">037 紫霞鹿 eikthyrdeer</option>
+        <option value="037B">037B 祈岳鹿 (地) eikthyrdeer terra</option>
+        <option value="038">038 疾風隼 nitewing</option>
+        <option value="039">039 姬小兔 ribunny</option>
+        <option value="040">040 炎魔羊 incineram</option>
+        <option value="040B">040B 暗魔羊 (暗) incineram noct</option>
+        <option value="041">041 幻悅蝶 cinnamoth</option>
+        <option value="042">042 熾焰牛 arsox</option>
+        <option value="043">043 趴趴鯰 dumud</option>
+        <option value="044">044 黑鴉隱士 cawgnito</option>
+        <option value="045">045 龐克蜥 leezpunk</option>
+        <option value="045B">045B 熱血蜥 (火) leezpunk ignis</option>
+        <option value="046">046 月鐮魔 loupmoon</option>
+        <option value="047">047 天擒鳥 galeclaw</option>
+        <option value="048">048 羽箭射手 robinquill</option>
+        <option value="048B">048B 山岳射手 (草+地) robinquill terra</option>
+        <option value="049">049 鐵拳猿 gorirat</option>
+        <option value="050">050 騎士蜂 beegarde</option>
+        <option value="051">051 女皇蜂 elizabee</option>
+        <option value="052">052 笑魘貓 grintale</option>
+        <option value="053">053 毛撣兒 swee</option>
+        <option value="054">054 毛老爹 sweepa</option>
+        <option value="055">055 疾旋鼬 chillet</option>
+        <option value="056">056 雷角馬 univolt</option>
+        <option value="057">057 吹雪狐 foxcicle</option>
+        <option value="058">058 火麒麟 pyrin</option>
+        <option value="058B">058B 邪麒麟 (火+暗) pyrin noct</option>
+        <option value="059">059 嚴冬鹿 reindrix</option>
+        <option value="060">060 霹靂犬 rayhound</option>
+        <option value="061">061 蒼焰狼 kitsun</option>
+        <option value="062">062 雷鳴童子 dazzi</option>
+        <option value="063">063 秘斯媞雅 lunaris</option>
+        <option value="064">064 花冠龍 dinossom</option>
+        <option value="064B">064B 雷冠龍 (雷+龍) dinossom lux</option>
+        <option value="065">065 流沙蛇 surfent</option>
+        <option value="065B">065B None surfent terra</option>
+        <option value="066">066 噬魂獸 maraith</option>
+        <option value="067">067 碎岩龜 digtoise</option>
+        <option value="068">068 貓蝠怪 tombat</option>
+        <option value="069">069 博愛蜥 lovander</option>
+        <option value="070">070 融焰娘 flambelle</option>
+        <option value="071">071 烽歌龍 vanwyrm</option>
+        <option value="071B">071B 霜歌龍 (冰+暗) vanwyrm cryst</option>
+        <option value="072">072 浪刃武士 bushi</option>
+        <option value="073">073 迅雷鳥 beakon</option>
+        <option value="074">074 燧火鳥 ragnahawk</option>
+        <option value="075">075 暗巫貓 katress</option>
+        <option value="076">076 焰巫狐 wixen</option>
+        <option value="077">077 踏春兔 verdash</option>
+        <option value="078">078 薇莉塔 vaelet</option>
+        <option value="079">079 綢笠蛾 sibelyx</option>
+        <option value="080">080 精靈龍 elphidran</option>
+        <option value="080B">080B 水靈龍 (龍) elphidran aqua</option>
+        <option value="081">081 火靈兒 kelpsea</option>
+        <option value="081B">081B None kelpsea ignis</option>
+        <option value="082">082 碧海龍 azurobe</option>
+        <option value="083">083 冰棘獸 cryolinx</option>
+        <option value="084">084 獄焰王 blazehowl</option>
+        <option value="084B">084B 獄閻王 (火+暗) blazehowl noct</option>
+        <option value="085">085 佩克龍 relaxaurus</option>
+        <option value="085B">085B 派克龍 (龍+雷) relaxaurus lux</option>
+        <option value="086">086 連理龍 broncherry</option>
+        <option value="086B">086B 海誓龍 (草+水) broncherry aqua</option>
+        <option value="087">087 花麗娜 petallia</option>
+        <option value="088">088 熔岩獸 reptyro</option>
+        <option value="088B">088B 寒霜獸 (冰+地) ice reptyro</option>
+        <option value="089">089 君王美露帕 kingpaca</option>
+        <option value="089B">089B 冰帝美露帕 (冰) ice kingpaca</option>
+        <option value="090">090 森猛獁 mammorest</option>
+        <option value="090B">090B 雪猛獁 (冰) mammorest cryst</option>
+        <option value="091">091 白絨雪怪 wumpo</option>
+        <option value="091B">091B 綠苔絨怪 (草) wumpo botan</option>
+        <option value="092">092 鎧格力斯 warsect</option>
+        <option value="093">093 雲海鹿 fenglope</option>
+        <option value="094">094 夜幕魔蝠 felbat</option>
+        <option value="095">095 天羽龍 quivern</option>
+        <option value="096">096 焰煌 blazamut</option>
+        <option value="097">097 雷冥鳥 helzephyr</option>
+        <option value="098">098 魔淵龍 astegon</option>
+        <option value="099">099 冥鎧蠍 menasting</option>
+        <option value="100">100 阿努比斯 anubis</option>
+        <option value="101">101 覆海龍 jormuntide</option>
+        <option value="101B">101B 騰炎龍 (龍+火) jormuntide ignis</option>
+        <option value="102">102 朱雀 suzaku</option>
+        <option value="102B">102B 清雀 (水) suzaku aqua</option>
+        <option value="103">103 暴電熊 grizzbolt</option>
+        <option value="104">104 百合女王 lyleen</option>
+        <option value="104B">104B 黑月女王 (暗) lyleen noct</option>
+        <option value="105">105 荷魯斯 faleris</option>
+        <option value="106">106 波魯杰克斯 orserk</option>
+        <option value="107">107 異構格里芬 shadowbeak</option>
+        <option value="108">108 聖光騎士 paladius</option>
+        <option value="109">109 混沌騎士 necromus</option>
+        <option value="110">110 喚冬獸 frostallion</option>
+        <option value="110B">110B 喚夜獸 (暗) frostallion noct</option>
+        <option value="111">111 空渦龍 jetragon</option>
+
+    </select>
+    <br />
+    <br />
+
+    <label for="sources">先代 - Parent Pals:</label>
+    <div id="sources-container">
+        <select class="sources">
+            <option value="000">空 EMPTY</option>
+            <option value="001">001 棉悠悠 lamball</option>
+            <option value="002">002 搗蛋貓 cattiva</option>
+            <option value="003">003 皮皮雞 chikipi</option>
+            <option value="004">004 翠葉鼠 lifmunk</option>
+            <option value="005">005 火絨狐 foxparks</option>
+            <option value="006">006 衝浪鴨 fuack</option>
+            <option value="007">007 伏特喵 sparkit</option>
+            <option value="008">008 新葉猿 tanzee</option>
+            <option value="009">009 燎火鹿 rooby</option>
+            <option value="010">010 企丸丸 pengullet</option>
+            <option value="011">011 企丸王 penking</option>
+            <option value="012">012 電棘鼠 jolthog</option>
+            <option value="012B">012B 電棘鼠 (冰) jolthog cryst</option>
+            <option value="013">013 葉泥泥 gumoss</option>
+            <option value="013B">013B None gumoss (special)</option>
+            <option value="014">014 玉藻狐 vixy</option>
+            <option value="015">015 啼卡爾 hoocrates</option>
+            <option value="016">016 壺小象 teafant</option>
+            <option value="017">017 瞅什魔 depresso</option>
+            <option value="018">018 米露菲 cremis</option>
+            <option value="019">019 寐魔 daedream</option>
+            <option value="020">020 草莽豬 rushoar</option>
+            <option value="021">021 露娜蒂 nox</option>
+            <option value="022">022 遁地鼠 fuddler</option>
+            <option value="023">023 勾魂魷 killamari</option>
+            <option value="024">024 喵絲特 mau</option>
+            <option value="024B">024B 冰絲特 (冰) mau cryst</option>
+            <option value="025">025 魯米兒 celaray</option>
+            <option value="026">026 獵狼 direhowl</option>
+            <option value="027">027 炸蛋鳥 tocotoco</option>
+            <option value="028">028 波娜兔 flopie</option>
+            <option value="029">029 波霸牛 mozzarina</option>
+            <option value="030">030 荊棘魔仙 bristla</option>
+            <option value="031">031 鯊小子 gobfin</option>
+            <option value="031B">031B 紅小鯊 (火) gobfin ignis</option>
+            <option value="032">032 吊縛靈 hangyu</option>
+            <option value="032B">032B 冰縛靈 (冰) hangyu cryst</option>
+            <option value="033">033 葉胖達 mossanda</option>
+            <option value="033B">033B 雷胖達 (雷) mossanda lux</option>
+            <option value="034">034 棉花糖 woolipop</option>
+            <option value="035">035 灌木羊 caprity</option>
+            <option value="036">036 美露帕 melpaca</option>
+            <option value="037">037 紫霞鹿 eikthyrdeer</option>
+            <option value="037B">037B 祈岳鹿 (地) eikthyrdeer terra</option>
+            <option value="038">038 疾風隼 nitewing</option>
+            <option value="039">039 姬小兔 ribunny</option>
+            <option value="040">040 炎魔羊 incineram</option>
+            <option value="040B">040B 暗魔羊 (暗) incineram noct</option>
+            <option value="041">041 幻悅蝶 cinnamoth</option>
+            <option value="042">042 熾焰牛 arsox</option>
+            <option value="043">043 趴趴鯰 dumud</option>
+            <option value="044">044 黑鴉隱士 cawgnito</option>
+            <option value="045">045 龐克蜥 leezpunk</option>
+            <option value="045B">045B 熱血蜥 (火) leezpunk ignis</option>
+            <option value="046">046 月鐮魔 loupmoon</option>
+            <option value="047">047 天擒鳥 galeclaw</option>
+            <option value="048">048 羽箭射手 robinquill</option>
+            <option value="048B">048B 山岳射手 (草+地) robinquill terra</option>
+            <option value="049">049 鐵拳猿 gorirat</option>
+            <option value="050">050 騎士蜂 beegarde</option>
+            <option value="051">051 女皇蜂 elizabee</option>
+            <option value="052">052 笑魘貓 grintale</option>
+            <option value="053">053 毛撣兒 swee</option>
+            <option value="054">054 毛老爹 sweepa</option>
+            <option value="055">055 疾旋鼬 chillet</option>
+            <option value="056">056 雷角馬 univolt</option>
+            <option value="057">057 吹雪狐 foxcicle</option>
+            <option value="058">058 火麒麟 pyrin</option>
+            <option value="058B">058B 邪麒麟 (火+暗) pyrin noct</option>
+            <option value="059">059 嚴冬鹿 reindrix</option>
+            <option value="060">060 霹靂犬 rayhound</option>
+            <option value="061">061 蒼焰狼 kitsun</option>
+            <option value="062">062 雷鳴童子 dazzi</option>
+            <option value="063">063 秘斯媞雅 lunaris</option>
+            <option value="064">064 花冠龍 dinossom</option>
+            <option value="064B">064B 雷冠龍 (雷+龍) dinossom lux</option>
+            <option value="065">065 流沙蛇 surfent</option>
+            <option value="065B">065B None surfent terra</option>
+            <option value="066">066 噬魂獸 maraith</option>
+            <option value="067">067 碎岩龜 digtoise</option>
+            <option value="068">068 貓蝠怪 tombat</option>
+            <option value="069">069 博愛蜥 lovander</option>
+            <option value="070">070 融焰娘 flambelle</option>
+            <option value="071">071 烽歌龍 vanwyrm</option>
+            <option value="071B">071B 霜歌龍 (冰+暗) vanwyrm cryst</option>
+            <option value="072">072 浪刃武士 bushi</option>
+            <option value="073">073 迅雷鳥 beakon</option>
+            <option value="074">074 燧火鳥 ragnahawk</option>
+            <option value="075">075 暗巫貓 katress</option>
+            <option value="076">076 焰巫狐 wixen</option>
+            <option value="077">077 踏春兔 verdash</option>
+            <option value="078">078 薇莉塔 vaelet</option>
+            <option value="079">079 綢笠蛾 sibelyx</option>
+            <option value="080">080 精靈龍 elphidran</option>
+            <option value="080B">080B 水靈龍 (龍) elphidran aqua</option>
+            <option value="081">081 火靈兒 kelpsea</option>
+            <option value="081B">081B None kelpsea ignis</option>
+            <option value="082">082 碧海龍 azurobe</option>
+            <option value="083">083 冰棘獸 cryolinx</option>
+            <option value="084">084 獄焰王 blazehowl</option>
+            <option value="084B">084B 獄閻王 (火+暗) blazehowl noct</option>
+            <option value="085">085 佩克龍 relaxaurus</option>
+            <option value="085B">085B 派克龍 (龍+雷) relaxaurus lux</option>
+            <option value="086">086 連理龍 broncherry</option>
+            <option value="086B">086B 海誓龍 (草+水) broncherry aqua</option>
+            <option value="087">087 花麗娜 petallia</option>
+            <option value="088">088 熔岩獸 reptyro</option>
+            <option value="088B">088B 寒霜獸 (冰+地) ice reptyro</option>
+            <option value="089">089 君王美露帕 kingpaca</option>
+            <option value="089B">089B 冰帝美露帕 (冰) ice kingpaca</option>
+            <option value="090">090 森猛獁 mammorest</option>
+            <option value="090B">090B 雪猛獁 (冰) mammorest cryst</option>
+            <option value="091">091 白絨雪怪 wumpo</option>
+            <option value="091B">091B 綠苔絨怪 (草) wumpo botan</option>
+            <option value="092">092 鎧格力斯 warsect</option>
+            <option value="093">093 雲海鹿 fenglope</option>
+            <option value="094">094 夜幕魔蝠 felbat</option>
+            <option value="095">095 天羽龍 quivern</option>
+            <option value="096">096 焰煌 blazamut</option>
+            <option value="097">097 雷冥鳥 helzephyr</option>
+            <option value="098">098 魔淵龍 astegon</option>
+            <option value="099">099 冥鎧蠍 menasting</option>
+            <option value="100">100 阿努比斯 anubis</option>
+            <option value="101">101 覆海龍 jormuntide</option>
+            <option value="101B">101B 騰炎龍 (龍+火) jormuntide ignis</option>
+            <option value="102">102 朱雀 suzaku</option>
+            <option value="102B">102B 清雀 (水) suzaku aqua</option>
+            <option value="103">103 暴電熊 grizzbolt</option>
+            <option value="104">104 百合女王 lyleen</option>
+            <option value="104B">104B 黑月女王 (暗) lyleen noct</option>
+            <option value="105">105 荷魯斯 faleris</option>
+            <option value="106">106 波魯杰克斯 orserk</option>
+            <option value="107">107 異構格里芬 shadowbeak</option>
+            <option value="108">108 聖光騎士 paladius</option>
+            <option value="109">109 混沌騎士 necromus</option>
+            <option value="110">110 喚冬獸 frostallion</option>
+            <option value="110B">110B 喚夜獸 (暗) frostallion noct</option>
+            <option value="111">111 空渦龍 jetragon</option>
+
+        </select>
+    </div>
+    <button onclick="addSource()">添加更多 - Add More Parent Pals</button>
+    <br />
+    <br />
+
+    <label for="excludes">禁用先代 - Exclude usage of</label>
+    <div id="excludes-container">
+        <select class="excludes">
+            <option value="000">空 EMPTY</option>
+            <option value="001">001 棉悠悠 lamball</option>
+            <option value="002">002 搗蛋貓 cattiva</option>
+            <option value="003">003 皮皮雞 chikipi</option>
+            <option value="004">004 翠葉鼠 lifmunk</option>
+            <option value="005">005 火絨狐 foxparks</option>
+            <option value="006">006 衝浪鴨 fuack</option>
+            <option value="007">007 伏特喵 sparkit</option>
+            <option value="008">008 新葉猿 tanzee</option>
+            <option value="009">009 燎火鹿 rooby</option>
+            <option value="010">010 企丸丸 pengullet</option>
+            <option value="011">011 企丸王 penking</option>
+            <option value="012">012 電棘鼠 jolthog</option>
+            <option value="012B">012B 電棘鼠 (冰) jolthog cryst</option>
+            <option value="013">013 葉泥泥 gumoss</option>
+            <option value="013B">013B None gumoss (special)</option>
+            <option value="014">014 玉藻狐 vixy</option>
+            <option value="015">015 啼卡爾 hoocrates</option>
+            <option value="016">016 壺小象 teafant</option>
+            <option value="017">017 瞅什魔 depresso</option>
+            <option value="018">018 米露菲 cremis</option>
+            <option value="019">019 寐魔 daedream</option>
+            <option value="020">020 草莽豬 rushoar</option>
+            <option value="021">021 露娜蒂 nox</option>
+            <option value="022">022 遁地鼠 fuddler</option>
+            <option value="023">023 勾魂魷 killamari</option>
+            <option value="024">024 喵絲特 mau</option>
+            <option value="024B">024B 冰絲特 (冰) mau cryst</option>
+            <option value="025">025 魯米兒 celaray</option>
+            <option value="026">026 獵狼 direhowl</option>
+            <option value="027">027 炸蛋鳥 tocotoco</option>
+            <option value="028">028 波娜兔 flopie</option>
+            <option value="029">029 波霸牛 mozzarina</option>
+            <option value="030">030 荊棘魔仙 bristla</option>
+            <option value="031">031 鯊小子 gobfin</option>
+            <option value="031B">031B 紅小鯊 (火) gobfin ignis</option>
+            <option value="032">032 吊縛靈 hangyu</option>
+            <option value="032B">032B 冰縛靈 (冰) hangyu cryst</option>
+            <option value="033">033 葉胖達 mossanda</option>
+            <option value="033B">033B 雷胖達 (雷) mossanda lux</option>
+            <option value="034">034 棉花糖 woolipop</option>
+            <option value="035">035 灌木羊 caprity</option>
+            <option value="036">036 美露帕 melpaca</option>
+            <option value="037">037 紫霞鹿 eikthyrdeer</option>
+            <option value="037B">037B 祈岳鹿 (地) eikthyrdeer terra</option>
+            <option value="038">038 疾風隼 nitewing</option>
+            <option value="039">039 姬小兔 ribunny</option>
+            <option value="040">040 炎魔羊 incineram</option>
+            <option value="040B">040B 暗魔羊 (暗) incineram noct</option>
+            <option value="041">041 幻悅蝶 cinnamoth</option>
+            <option value="042">042 熾焰牛 arsox</option>
+            <option value="043">043 趴趴鯰 dumud</option>
+            <option value="044">044 黑鴉隱士 cawgnito</option>
+            <option value="045">045 龐克蜥 leezpunk</option>
+            <option value="045B">045B 熱血蜥 (火) leezpunk ignis</option>
+            <option value="046">046 月鐮魔 loupmoon</option>
+            <option value="047">047 天擒鳥 galeclaw</option>
+            <option value="048">048 羽箭射手 robinquill</option>
+            <option value="048B">048B 山岳射手 (草+地) robinquill terra</option>
+            <option value="049">049 鐵拳猿 gorirat</option>
+            <option value="050">050 騎士蜂 beegarde</option>
+            <option value="051">051 女皇蜂 elizabee</option>
+            <option value="052">052 笑魘貓 grintale</option>
+            <option value="053">053 毛撣兒 swee</option>
+            <option value="054">054 毛老爹 sweepa</option>
+            <option value="055">055 疾旋鼬 chillet</option>
+            <option value="056">056 雷角馬 univolt</option>
+            <option value="057">057 吹雪狐 foxcicle</option>
+            <option value="058">058 火麒麟 pyrin</option>
+            <option value="058B">058B 邪麒麟 (火+暗) pyrin noct</option>
+            <option value="059">059 嚴冬鹿 reindrix</option>
+            <option value="060">060 霹靂犬 rayhound</option>
+            <option value="061">061 蒼焰狼 kitsun</option>
+            <option value="062">062 雷鳴童子 dazzi</option>
+            <option value="063">063 秘斯媞雅 lunaris</option>
+            <option value="064">064 花冠龍 dinossom</option>
+            <option value="064B">064B 雷冠龍 (雷+龍) dinossom lux</option>
+            <option value="065">065 流沙蛇 surfent</option>
+            <option value="065B">065B None surfent terra</option>
+            <option value="066">066 噬魂獸 maraith</option>
+            <option value="067">067 碎岩龜 digtoise</option>
+            <option value="068">068 貓蝠怪 tombat</option>
+            <option value="069">069 博愛蜥 lovander</option>
+            <option value="070">070 融焰娘 flambelle</option>
+            <option value="071">071 烽歌龍 vanwyrm</option>
+            <option value="071B">071B 霜歌龍 (冰+暗) vanwyrm cryst</option>
+            <option value="072">072 浪刃武士 bushi</option>
+            <option value="073">073 迅雷鳥 beakon</option>
+            <option value="074">074 燧火鳥 ragnahawk</option>
+            <option value="075">075 暗巫貓 katress</option>
+            <option value="076">076 焰巫狐 wixen</option>
+            <option value="077">077 踏春兔 verdash</option>
+            <option value="078">078 薇莉塔 vaelet</option>
+            <option value="079">079 綢笠蛾 sibelyx</option>
+            <option value="080">080 精靈龍 elphidran</option>
+            <option value="080B">080B 水靈龍 (龍) elphidran aqua</option>
+            <option value="081">081 火靈兒 kelpsea</option>
+            <option value="081B">081B None kelpsea ignis</option>
+            <option value="082">082 碧海龍 azurobe</option>
+            <option value="083">083 冰棘獸 cryolinx</option>
+            <option value="084">084 獄焰王 blazehowl</option>
+            <option value="084B">084B 獄閻王 (火+暗) blazehowl noct</option>
+            <option value="085">085 佩克龍 relaxaurus</option>
+            <option value="085B">085B 派克龍 (龍+雷) relaxaurus lux</option>
+            <option value="086">086 連理龍 broncherry</option>
+            <option value="086B">086B 海誓龍 (草+水) broncherry aqua</option>
+            <option value="087">087 花麗娜 petallia</option>
+            <option value="088">088 熔岩獸 reptyro</option>
+            <option value="088B">088B 寒霜獸 (冰+地) ice reptyro</option>
+            <option value="089">089 君王美露帕 kingpaca</option>
+            <option value="089B">089B 冰帝美露帕 (冰) ice kingpaca</option>
+            <option value="090">090 森猛獁 mammorest</option>
+            <option value="090B">090B 雪猛獁 (冰) mammorest cryst</option>
+            <option value="091">091 白絨雪怪 wumpo</option>
+            <option value="091B">091B 綠苔絨怪 (草) wumpo botan</option>
+            <option value="092">092 鎧格力斯 warsect</option>
+            <option value="093">093 雲海鹿 fenglope</option>
+            <option value="094">094 夜幕魔蝠 felbat</option>
+            <option value="095">095 天羽龍 quivern</option>
+            <option value="096">096 焰煌 blazamut</option>
+            <option value="097">097 雷冥鳥 helzephyr</option>
+            <option value="098">098 魔淵龍 astegon</option>
+            <option value="099">099 冥鎧蠍 menasting</option>
+            <option value="100">100 阿努比斯 anubis</option>
+            <option value="101">101 覆海龍 jormuntide</option>
+            <option value="101B">101B 騰炎龍 (龍+火) jormuntide ignis</option>
+            <option value="102">102 朱雀 suzaku</option>
+            <option value="102B">102B 清雀 (水) suzaku aqua</option>
+            <option value="103">103 暴電熊 grizzbolt</option>
+            <option value="104">104 百合女王 lyleen</option>
+            <option value="104B">104B 黑月女王 (暗) lyleen noct</option>
+            <option value="105">105 荷魯斯 faleris</option>
+            <option value="106">106 波魯杰克斯 orserk</option>
+            <option value="107">107 異構格里芬 shadowbeak</option>
+            <option value="108">108 聖光騎士 paladius</option>
+            <option value="109">109 混沌騎士 necromus</option>
+            <option value="110">110 喚冬獸 frostallion</option>
+            <option value="110B">110B 喚夜獸 (暗) frostallion noct</option>
+            <option value="111">111 空渦龍 jetragon</option>
+
+        </select>
+    </div>
+    <button onclick="addExclude()">添加更多 - Add more excludes</button>
+
+    <br />
+    <br />
+
+    <!-- <button onclick="excludeAllSpecialItems()">Exclude all special items</button> -->
+    <label for="exclude-special">禁用亚种 - Exclude Beta Pals:</label>
+    <input type="checkbox" id="exclude-special" name="exclude-special" value="excludeSpecial"
+        onchange="toggleExcludeSpecial(this)">
+
+    <br />
+    <br />
+
+    <button onclick="generateOutput()">Generate Output (click me) </button>
+    <div>
+        <!-- <textarea id="resultText"></textarea> -->
+
+        <!-- <p id="resultText"> 啊啊</p> -->
+        <textarea id="resultText" rows="50" cols="50"></textarea>
+    </div>
+
+    <script>
+        // JavaScript to add more sources/excludes and handle the generation of output
+        url_pal_data = "https://raw.githubusercontent.com/yitiro/palworld-breed/main/pal.json";
+        var jsonObject = null;
+        var id2pal = {};
+        fetch(url_pal_data)
+            .then(response => response.json())
+            .then(data => {
+                // console.log(data)
+                jsonObject = data;
+                jsonObject.forEach(function (item) {
+                    id2pal[item["id"]] = {
+                        id: item["id"],
+                        cn_name: item["cn_name"],
+                        en_name: item["en_name"],
+                    };
+                });
+            })
+        var jsonString = '[{"id":"001","cn_name":"棉悠悠","en_name":"lamball","power":1470,"male_prob":0.5},{"id":"002","cn_name":"搗蛋貓","en_name":"cattiva","power":1460,"male_prob":0.5},{"id":"003","cn_name":"皮皮雞","en_name":"chikipi","power":1500,"male_prob":0.5},{"id":"004","cn_name":"翠葉鼠","en_name":"lifmunk","power":1430,"male_prob":0.5},{"id":"005","cn_name":"火絨狐","en_name":"foxparks","power":1400,"male_prob":0.5},{"id":"006","cn_name":"衝浪鴨","en_name":"fuack","power":1330,"male_prob":0.5},{"id":"007","cn_name":"伏特喵","en_name":"sparkit","power":1410,"male_prob":0.5},{"id":"008","cn_name":"新葉猿","en_name":"tanzee","power":1250,"male_prob":0.5},{"id":"009","cn_name":"燎火鹿","en_name":"rooby","power":1155,"male_prob":0.5},{"id":"010","cn_name":"企丸丸","en_name":"pengullet","power":1350,"male_prob":0.5},{"id":"011","cn_name":"企丸王","en_name":"penking","power":520,"male_prob":0.5},{"id":"012","cn_name":"電棘鼠","en_name":"jolthog","power":1370,"male_prob":0.5},{"id":"012B","cn_name":"電棘鼠 (冰)","en_name":"jolthog cryst","power":1360,"male_prob":0.5},{"id":"013","cn_name":"葉泥泥","en_name":"gumoss","power":1240,"male_prob":0.5},{"id":"013B","cn_name":null,"en_name":"gumoss (special)","power":1240,"male_prob":0.5},{"id":"014","cn_name":"玉藻狐","en_name":"vixy","power":1450,"male_prob":0.5},{"id":"015","cn_name":"啼卡爾","en_name":"hoocrates","power":1390,"male_prob":0.5},{"id":"016","cn_name":"壺小象","en_name":"teafant","power":1490,"male_prob":0.5},{"id":"017","cn_name":"瞅什魔","en_name":"depresso","power":1380,"male_prob":0.5},{"id":"018","cn_name":"米露菲","en_name":"cremis","power":1455,"male_prob":0.5},{"id":"019","cn_name":"寐魔","en_name":"daedream","power":1230,"male_prob":0.5},{"id":"020","cn_name":"草莽豬","en_name":"rushoar","power":1130,"male_prob":0.5},{"id":"021","cn_name":"露娜蒂","en_name":"nox","power":1180,"male_prob":0.5},{"id":"022","cn_name":"遁地鼠","en_name":"fuddler","power":1220,"male_prob":0.5},{"id":"023","cn_name":"勾魂魷","en_name":"killamari","power":1290,"male_prob":0.5},{"id":"024","cn_name":"喵絲特","en_name":"mau","power":1480,"male_prob":0.5},{"id":"024B","cn_name":"冰絲特 (冰)","en_name":"mau cryst","power":1440,"male_prob":0.5},{"id":"025","cn_name":"魯米兒","en_name":"celaray","power":870,"male_prob":0.5},{"id":"026","cn_name":"獵狼","en_name":"direhowl","power":1060,"male_prob":0.5},{"id":"027","cn_name":"炸蛋鳥","en_name":"tocotoco","power":1340,"male_prob":0.5},{"id":"028","cn_name":"波娜兔","en_name":"flopie","power":1280,"male_prob":0.5},{"id":"029","cn_name":"波霸牛","en_name":"mozzarina","power":910,"male_prob":"20"},{"id":"030","cn_name":"荊棘魔仙","en_name":"bristla","power":1320,"male_prob":0.5},{"id":"031","cn_name":"鯊小子","en_name":"gobfin","power":1090,"male_prob":0.5},{"id":"031B","cn_name":"紅小鯊 (火)","en_name":"gobfin ignis","power":1100,"male_prob":0.5},{"id":"032","cn_name":"吊縛靈","en_name":"hangyu","power":1420,"male_prob":0.5},{"id":"032B","cn_name":"冰縛靈 (冰)","en_name":"hangyu cryst","power":1422,"male_prob":0.5},{"id":"033","cn_name":"葉胖達","en_name":"mossanda","power":430,"male_prob":0.5},{"id":"033B","cn_name":"雷胖達 (雷)","en_name":"mossanda lux","power":390,"male_prob":0.5},{"id":"034","cn_name":"棉花糖","en_name":"woolipop","power":1190,"male_prob":0.5},{"id":"035","cn_name":"灌木羊","en_name":"caprity","power":930,"male_prob":0.5},{"id":"036","cn_name":"美露帕","en_name":"melpaca","power":890,"male_prob":0.5},{"id":"037","cn_name":"紫霞鹿","en_name":"eikthyrdeer","power":920,"male_prob":0.5},{"id":"037B","cn_name":"祈岳鹿 (地)","en_name":"eikthyrdeer terra","power":900,"male_prob":0.5},{"id":"038","cn_name":"疾風隼","en_name":"nitewing","power":420,"male_prob":0.5},{"id":"039","cn_name":"姬小兔","en_name":"ribunny","power":1310,"male_prob":0.5},{"id":"040","cn_name":"炎魔羊","en_name":"incineram","power":590,"male_prob":0.5},{"id":"040B","cn_name":"暗魔羊 (暗)","en_name":"incineram noct","power":580,"male_prob":0.5},{"id":"041","cn_name":"幻悅蝶","en_name":"cinnamoth","power":490,"male_prob":0.5},{"id":"042","cn_name":"熾焰牛","en_name":"arsox","power":790,"male_prob":0.5},{"id":"043","cn_name":"趴趴鯰","en_name":"dumud","power":895,"male_prob":0.5},{"id":"044","cn_name":"黑鴉隱士","en_name":"cawgnito","power":1080,"male_prob":0.5},{"id":"045","cn_name":"龐克蜥","en_name":"leezpunk","power":1120,"male_prob":0.5},{"id":"045B","cn_name":"熱血蜥 (火)","en_name":"leezpunk ignis","power":1140,"male_prob":0.5},{"id":"046","cn_name":"月鐮魔","en_name":"loupmoon","power":950,"male_prob":0.5},{"id":"047","cn_name":"天擒鳥","en_name":"galeclaw","power":1030,"male_prob":0.5},{"id":"048","cn_name":"羽箭射手","en_name":"robinquill","power":1020,"male_prob":0.5},{"id":"048B","cn_name":"山岳射手 (草+地)","en_name":"robinquill terra","power":1000,"male_prob":0.5},{"id":"049","cn_name":"鐵拳猿","en_name":"gorirat","power":1040,"male_prob":0.5},{"id":"050","cn_name":"騎士蜂","en_name":"beegarde","power":1070,"male_prob":"10"},{"id":"051","cn_name":"女皇蜂","en_name":"elizabee","power":330,"male_prob":"10"},{"id":"052","cn_name":"笑魘貓","en_name":"grintale","power":510,"male_prob":0.5},{"id":"053","cn_name":"毛撣兒","en_name":"swee","power":1300,"male_prob":0.5},{"id":"054","cn_name":"毛老爹","en_name":"sweepa","power":410,"male_prob":0.5},{"id":"055","cn_name":"疾旋鼬","en_name":"chillet","power":800,"male_prob":0.5},{"id":"056","cn_name":"雷角馬","en_name":"univolt","power":680,"male_prob":0.5},{"id":"057","cn_name":"吹雪狐","en_name":"foxcicle","power":760,"male_prob":0.5},{"id":"058","cn_name":"火麒麟","en_name":"pyrin","power":360,"male_prob":0.5},{"id":"058B","cn_name":"邪麒麟 (火+暗)","en_name":"pyrin noct","power":240,"male_prob":0.5},{"id":"059","cn_name":"嚴冬鹿","en_name":"reindrix","power":880,"male_prob":0.5},{"id":"060","cn_name":"霹靂犬","en_name":"rayhound","power":740,"male_prob":0.5},{"id":"061","cn_name":"蒼焰狼","en_name":"kitsun","power":830,"male_prob":0.5},{"id":"062","cn_name":"雷鳴童子","en_name":"dazzi","power":1210,"male_prob":"20"},{"id":"063","cn_name":"秘斯媞雅","en_name":"lunaris","power":1110,"male_prob":0.5},{"id":"064","cn_name":"花冠龍","en_name":"dinossom","power":820,"male_prob":0.5},{"id":"064B","cn_name":"雷冠龍 (雷+龍)","en_name":"dinossom lux","power":810,"male_prob":0.5},{"id":"065","cn_name":"流沙蛇","en_name":"surfent","power":560,"male_prob":0.5},{"id":"065B","cn_name":null,"en_name":"surfent terra","power":550,"male_prob":0.5},{"id":"066","cn_name":"噬魂獸","en_name":"maraith","power":1150,"male_prob":0.5},{"id":"067","cn_name":"碎岩龜","en_name":"digtoise","power":850,"male_prob":0.5},{"id":"068","cn_name":"貓蝠怪","en_name":"tombat","power":750,"male_prob":0.5},{"id":"069","cn_name":"博愛蜥","en_name":"lovander","power":940,"male_prob":"30"},{"id":"070","cn_name":"融焰娘","en_name":"flambelle","power":1405,"male_prob":0.5},{"id":"071","cn_name":"烽歌龍","en_name":"vanwyrm","power":660,"male_prob":0.5},{"id":"071B","cn_name":"霜歌龍 (冰+暗)","en_name":"vanwyrm cryst","power":620,"male_prob":0.5},{"id":"072","cn_name":"浪刃武士","en_name":"bushi","power":640,"male_prob":0.5},{"id":"073","cn_name":"迅雷鳥","en_name":"beakon","power":220,"male_prob":0.5},{"id":"074","cn_name":"燧火鳥","en_name":"ragnahawk","power":380,"male_prob":0.5},{"id":"075","cn_name":"暗巫貓","en_name":"katress","power":700,"male_prob":0.5},{"id":"076","cn_name":"焰巫狐","en_name":"wixen","power":1160,"male_prob":0.5},{"id":"077","cn_name":"踏春兔","en_name":"verdash","power":990,"male_prob":0.5},{"id":"078","cn_name":"薇莉塔","en_name":"vaelet","power":1050,"male_prob":0.5},{"id":"079","cn_name":"綢笠蛾","en_name":"sibelyx","power":450,"male_prob":0.5},{"id":"080","cn_name":"精靈龍","en_name":"elphidran","power":540,"male_prob":0.5},{"id":"080B","cn_name":"水靈龍 (龍)","en_name":"elphidran aqua","power":530,"male_prob":0.5},{"id":"081","cn_name":"火靈兒","en_name":"kelpsea","power":1260,"male_prob":0.5},{"id":"081B","cn_name":null,"en_name":"kelpsea ignis","power":1270,"male_prob":0.5},{"id":"082","cn_name":"碧海龍","en_name":"azurobe","power":500,"male_prob":0.5},{"id":"083","cn_name":"冰棘獸","en_name":"cryolinx","power":130,"male_prob":0.5},{"id":"084","cn_name":"獄焰王","en_name":"blazehowl","power":710,"male_prob":0.5},{"id":"084B","cn_name":"獄閻王 (火+暗)","en_name":"blazehowl noct","power":670,"male_prob":0.5},{"id":"085","cn_name":"佩克龍","en_name":"relaxaurus","power":280,"male_prob":0.5},{"id":"085B","cn_name":"派克龍 (龍+雷)","en_name":"relaxaurus lux","power":270,"male_prob":0.5},{"id":"086","cn_name":"連理龍","en_name":"broncherry","power":860,"male_prob":0.5},{"id":"086B","cn_name":"海誓龍 (草+水)","en_name":"broncherry aqua","power":840,"male_prob":0.5},{"id":"087","cn_name":"花麗娜","en_name":"petallia","power":780,"male_prob":0.5},{"id":"088","cn_name":"熔岩獸","en_name":"reptyro","power":320,"male_prob":0.5},{"id":"088B","cn_name":"寒霜獸 (冰+地)","en_name":"ice reptyro","power":230,"male_prob":0.5},{"id":"089","cn_name":"君王美露帕","en_name":"kingpaca","power":470,"male_prob":"90"},{"id":"089B","cn_name":"冰帝美露帕 (冰)","en_name":"ice kingpaca","power":440,"male_prob":"90"},{"id":"090","cn_name":"森猛獁","en_name":"mammorest","power":300,"male_prob":0.5},{"id":"090B","cn_name":"雪猛獁 (冰)","en_name":"mammorest cryst","power":290,"male_prob":0.5},{"id":"091","cn_name":"白絨雪怪","en_name":"wumpo","power":460,"male_prob":0.5},{"id":"091B","cn_name":"綠苔絨怪 (草)","en_name":"wumpo botan","power":480,"male_prob":0.5},{"id":"092","cn_name":"鎧格力斯","en_name":"warsect","power":340,"male_prob":"85"},{"id":"093","cn_name":"雲海鹿","en_name":"fenglope","power":980,"male_prob":0.5},{"id":"094","cn_name":"夜幕魔蝠","en_name":"felbat","power":1010,"male_prob":0.5},{"id":"095","cn_name":"天羽龍","en_name":"quivern","power":350,"male_prob":0.5},{"id":"096","cn_name":"焰煌","en_name":"blazamut","power":10,"male_prob":0.5},{"id":"097","cn_name":"雷冥鳥","en_name":"helzephyr","power":190,"male_prob":0.5},{"id":"098","cn_name":"魔淵龍","en_name":"astegon","power":150,"male_prob":0.5},{"id":"099","cn_name":"冥鎧蠍","en_name":"menasting","power":260,"male_prob":0.5},{"id":"100","cn_name":"阿努比斯","en_name":"anubis","power":570,"male_prob":0.5},{"id":"101","cn_name":"覆海龍","en_name":"jormuntide","power":310,"male_prob":0.5},{"id":"101B","cn_name":"騰炎龍 (龍+火)","en_name":"jormuntide ignis","power":315,"male_prob":0.5},{"id":"102","cn_name":"朱雀","en_name":"suzaku","power":50,"male_prob":0.5},{"id":"102B","cn_name":"清雀 (水)","en_name":"suzaku aqua","power":30,"male_prob":0.5},{"id":"103","cn_name":"暴電熊","en_name":"grizzbolt","power":200,"male_prob":0.5},{"id":"104","cn_name":"百合女王","en_name":"lyleen","power":250,"male_prob":"30"},{"id":"104B","cn_name":"黑月女王 (暗)","en_name":"lyleen noct","power":210,"male_prob":"30"},{"id":"105","cn_name":"荷魯斯","en_name":"faleris","power":370,"male_prob":0.5},{"id":"106","cn_name":"波魯杰克斯","en_name":"orserk","power":140,"male_prob":0.5},{"id":"107","cn_name":"異構格里芬","en_name":"shadowbeak","power":60,"male_prob":0.5},{"id":"108","cn_name":"聖光騎士","en_name":"paladius","power":80,"male_prob":0.5},{"id":"109","cn_name":"混沌騎士","en_name":"necromus","power":70,"male_prob":0.5},{"id":"110","cn_name":"喚冬獸","en_name":"frostallion","power":120,"male_prob":0.5},{"id":"110B","cn_name":"喚夜獸 (暗)","en_name":"frostallion noct","power":100,"male_prob":0.5},{"id":"111","cn_name":"空渦龍","en_name":"jetragon","power":90,"male_prob":0.5}]';
+        var jsonObject = JSON.parse(jsonString);
+        var excludeSpecial = false;
+
+        var parent_data = {};
+
+        url = 'https://raw.githubusercontent.com/yitiro/palworld-breed/main/parent_data.json'
+        fetch(url)
+            .then(response => response.json())
+            .then(jsonData => {
+                parent_data = jsonData;
+            })
+            .catch(error => {
+                console.error('Error fetching and parsing the data', error);
+            });
+
+        function addSource() {
+            let newSource = document.createElement("select");
+            newSource.classList.add("sources");
+
+            let option1 = document.createElement("option");
+            option1.value = "000";
+            option1.textContent = "空 EMPTY";
+            newSource.appendChild(option1);
+
+            jsonObject.forEach(function (item) {
+                let option = document.createElement("option");
+                option.value = item["id"];
+                option.textContent = item["id"] + " " + item["cn_name"] + " " + item["en_name"];
+                newSource.appendChild(option);
+            });
+
+            document.getElementById("sources-container").appendChild(newSource);
+        }
+
+        function addExclude() {
+            let newExclude = document.createElement("select");
+            newExclude.classList.add("excludes");
+            // Add options to newExclude as needed
+            let option1 = document.createElement("option");
+            option1.value = "000";
+            option1.textContent = "空 EMPTY";
+            newExclude.appendChild(option1);
+
+            jsonObject.forEach(function (item) {
+                let option = document.createElement("option");
+                option.value = item["id"];
+                option.textContent = item["id"] + " " + item["cn_name"] + " " + item["en_name"];
+                newExclude.appendChild(option);
+            });
+
+            document.getElementById("excludes-container").appendChild(newExclude);
+        }
+
+        // function excludeAllSpecialItems() {
+        //     // Implement logic to exclude all special items
+        //     // Update resultText accordingly
+        // }
+        function toggleExcludeSpecial(checkbox) {
+            if (checkbox.checked) {
+                // Implement logic to exclude all special items
+                // Update resultText accordingly
+                excludeSpecial = true;
+            } else {
+                // Logic for when the checkbox is unchecked
+                excludeSpecial = false;
+            }
+        }
+
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
+        function get_parents_from_any(c_id, source, exclude, exclude_special) {
+            let id2nth = { [c_id]: 0 };
+            let to_process = [c_id];
+            let id2method = {};
+            let new_to_process;
+
+            while (to_process.length > 0) {
+                new_to_process = new Set([]);
+                for (let id of to_process) {
+                    if (id2nth[id] === 7) {
+                        continue;
+                    }
+                    parent_pairs = parent_data[id];
+                    shuffleArray(parent_pairs);
+
+                    parent_pairs.forEach(function (item) {
+                        let p1_id = item[0];
+                        let p2_id = item[1];
+
+                        if (exclude.has(p1_id) || exclude.has(p2_id)) {
+                            return;
+                        }
+                        if (exclude_special && (p1_id.endsWith('B') || p2_id.endsWith('B'))) {
+                            return;
+                        }
+                        if (!(p1_id in id2nth)) {
+                            id2nth[p1_id] = id2nth[id] + 1;
+                            id2method[p1_id] = [p1_id, p2_id, id];
+                            new_to_process.add(p1_id);
+                        }
+                        if (!(p2_id in id2nth)) {
+                            id2nth[p2_id] = id2nth[id] + 1;
+                            id2method[p2_id] = [p1_id, p2_id, id];
+                            new_to_process.add(p2_id);
+                        }
+
+
+                    });
+
+                }
+                to_process = Array.from(new_to_process);
+                shuffleArray(to_process);
+            }
+            var res = {};
+
+            if (source.length === 0) {
+                if (Object.keys(id2nth).length <= 10) {
+                    source = Object.keys(id2nth);
+                } else {
+                    source = Object.keys(id2nth).filter(function (key) { return id2nth[key] <= 4; });
+                    if (source.length > 10) {
+                        source = Object.keys(id2nth).filter(function (key) { return id2nth[key] <= 3; });
+                    }
+                    if (source.length > 10) {
+                        source1 = Object.keys(id2nth).filter(function (key) { return id2nth[key] === 1; });
+                        source2 = Object.keys(id2nth).filter(function (key) { return id2nth[key] === 2; });
+                        source = source1.concat(shuffleArray(source2).slice(0, 10 - source1.length));
+                    }
+                }
+            }
+
+            source.forEach(function (s) {
+                if (!(s in id2nth)) {
+                    return;
+                }
+                if (s === c_id) {
+                    res[s] = [[c_id, c_id, c_id]];
+                    return;
+                }
+                let current = s;
+                while (current !== c_id) {
+                    if (!(s in res)) {
+                        res[s] = [];
+                    }
+                    res[s].push(id2method[current]);
+                    console.log("current: " + current + ' ' + id2method[current])
+                    current = id2method[current][2];
+                }
+            });
+
+            return res;
+        }
+
+        // Function to read input and generate output
+        function generateOutput() {
+            let target = document.getElementById("target").value;
+            let sources = Array.from(document.getElementsByClassName("sources"), e => e.value);
+            sources = sources.filter(function (item) { return item !== "000"; });
+            let excludes = Array.from(document.getElementsByClassName("excludes"), e => e.value);
+            excludes = excludes.filter(function (item) { return item !== "000"; });
+            excludes = new Set(excludes);
+
+
+            // Logic to process the input values and generate the output text
+            res = get_parents_from_any(target, sources, excludes, excludeSpecial);
+            let resultText = ""; // Replace with actual logic
+            // for key in res:
+            //     print("----------------")
+            //     source = id2pal[key]
+            //     print(f"Target: {target.cn_name}")
+            //     print(f"From: {source.cn_name}")
+            //     for item in res[key]:
+            //         p1_id, p2_id, c_id = item
+            //         p1 = id2pal[p1_id]
+            //         p2 = id2pal[p2_id]
+            //         c = id2pal[c_id]
+            //         print(f'{p1.cn_name}({p1.id}) + {p2.cn_name}({p2.id}) => {c.cn_name}({c.id})')
+            // res.forEach(function (key) {
+            target_pal = id2pal[target]
+            for (var key in res) {
+                resultText += "----------------\n";
+                source = id2pal[key];
+                resultText += "Target: " + target_pal.cn_name + "\n";
+                resultText += "From: " + source.cn_name + "\n";
+                res[key].forEach(function (item) {
+                    p1_id = item[0];
+                    p2_id = item[1];
+                    c_id = item[2];
+                    p1 = id2pal[p1_id];
+                    p2 = id2pal[p2_id];
+                    c = id2pal[c_id];
+                    resultText += p1.cn_name + "(" + p1.id + ") + " + p2.cn_name + "(" + p2.id + ") => " + c.cn_name + "(" + c.id + ")\n";
+                });
+            };
+
+
+            // resultText += parent_data['001'] + '\n';
+            // resultText += parent_data['001'][0] + '\n';
+            // resultText += parent_data['001'][0][0] + '\n';
+            // resultText += "\n*********\n";
+            // resultText += "Target: " + target + "\n";
+            // resultText += "Exclude Special: " + excludeSpecial + "\n";
+            // resultText += "Sources: " + sources + "\n";
+            // resultText += "Excludes: " + excludes + "\n";
+
+            document.getElementById("resultText").value = resultText;
+        }
+
+        // Call this function whenever you need to update the output
+        // generateOutput();
+
+    </script>
+
+</body>
+
+</html>
