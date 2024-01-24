@@ -23,7 +23,8 @@
         }
 
         .sources option,
-        .excludes option {
+        .excludes option,
+        .language option {
             padding: 2px 5px;
             /* Adds padding inside each option */
             margin-top: 2px;
@@ -76,7 +77,7 @@
 
 <body>
 
-    <label for="target">最终配种产出 - Target Pal:</label>
+    <label for="target">目标子代 - Target Pal:</label>
     <br />
     <select id="target">
         <!-- Options will be added here -->
@@ -223,7 +224,7 @@
     <br />
     <br />
 
-    <label for="sources">先代 - Parent Pals:</label>
+    <label for="sources">备选先代 - Candidate Parent Pals:</label>
     <div id="sources-container">
         <select class="sources">
             <option value="000">空 EMPTY</option>
@@ -518,7 +519,6 @@
         </select>
     </div>
     <button onclick="addExclude()">添加更多 - Add more excludes</button>
-
     <br />
     <br />
 
@@ -527,6 +527,14 @@
     <input type="checkbox" id="exclude-special" name="exclude-special" value="excludeSpecial"
         onchange="toggleExcludeSpecial(this)">
 
+    <br />
+    <br />
+
+    <label for="language">输出语言 - Output Language:</label>
+    <select id="language">
+        <option value="cn">中文</option>
+        <option value="en">English</option>
+    </select>
     <br />
     <br />
 
@@ -725,28 +733,26 @@
             excludes = excludes.filter(function (item) { return item !== "000"; });
             excludes = new Set(excludes);
 
+            let chosen_language = document.getElementById("language").value;
+
 
             // Logic to process the input values and generate the output text
             res = get_parents_from_any(target, sources, excludes, excludeSpecial);
             let resultText = ""; // Replace with actual logic
-            // for key in res:
-            //     print("----------------")
-            //     source = id2pal[key]
-            //     print(f"Target: {target.cn_name}")
-            //     print(f"From: {source.cn_name}")
-            //     for item in res[key]:
-            //         p1_id, p2_id, c_id = item
-            //         p1 = id2pal[p1_id]
-            //         p2 = id2pal[p2_id]
-            //         c = id2pal[c_id]
-            //         print(f'{p1.cn_name}({p1.id}) + {p2.cn_name}({p2.id}) => {c.cn_name}({c.id})')
-            // res.forEach(function (key) {
+
             target_pal = id2pal[target]
             for (var key in res) {
                 resultText += "----------------\n";
                 source = id2pal[key];
-                resultText += "Target: " + target_pal.cn_name + "\n";
-                resultText += "From: " + source.cn_name + "\n";
+                if (chosen_language === "cn") {
+                    resultText += "目标: " + target_pal.cn_name + "\n";
+                    resultText += "祖先: " + source.cn_name + "\n";
+                }
+                else {
+                    resultText += "Target: " + target_pal.en_name + "\n";
+                    resultText += "Selected Parent: " + source.en_name + "\n";
+                }
+                
                 res[key].forEach(function (item) {
                     p1_id = item[0];
                     p2_id = item[1];
@@ -754,26 +760,20 @@
                     p1 = id2pal[p1_id];
                     p2 = id2pal[p2_id];
                     c = id2pal[c_id];
-                    resultText += p1.cn_name + "(" + p1.id + ") + " + p2.cn_name + "(" + p2.id + ") => " + c.cn_name + "(" + c.id + ")\n";
+                    if (chosen_language === "cn") {
+                        resultText += p1.cn_name + "(" + p1.id + ") + ";
+                        resultText += p2.cn_name + "(" + p2.id + ") => ";
+                        resultText += c.cn_name + "(" + c.id + ")\n";
+                    }
+                    else {
+                        resultText += p1.en_name + "(" + p1.id + ") + ";
+                        resultText += p2.en_name + "(" + p2.id + ") => ";
+                        resultText += c.en_name + "(" + c.id + ")\n";
+                    }
                 });
             };
-
-
-            // resultText += parent_data['001'] + '\n';
-            // resultText += parent_data['001'][0] + '\n';
-            // resultText += parent_data['001'][0][0] + '\n';
-            // resultText += "\n*********\n";
-            // resultText += "Target: " + target + "\n";
-            // resultText += "Exclude Special: " + excludeSpecial + "\n";
-            // resultText += "Sources: " + sources + "\n";
-            // resultText += "Excludes: " + excludes + "\n";
-
             document.getElementById("resultText").value = resultText;
         }
-
-        // Call this function whenever you need to update the output
-        // generateOutput();
-
     </script>
 
 </body>
