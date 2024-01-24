@@ -1,0 +1,968 @@
+[
+  {
+    "id": "001",
+    "cn_name": "棉悠悠",
+    "en_name": "lamball",
+    "power": 1470,
+    "male_prob": 0.5
+  },
+  {
+    "id": "002",
+    "cn_name": "搗蛋貓",
+    "en_name": "cattiva",
+    "power": 1460,
+    "male_prob": 0.5
+  },
+  {
+    "id": "003",
+    "cn_name": "皮皮雞",
+    "en_name": "chikipi",
+    "power": 1500,
+    "male_prob": 0.5
+  },
+  {
+    "id": "004",
+    "cn_name": "翠葉鼠",
+    "en_name": "lifmunk",
+    "power": 1430,
+    "male_prob": 0.5
+  },
+  {
+    "id": "005",
+    "cn_name": "火絨狐",
+    "en_name": "foxparks",
+    "power": 1400,
+    "male_prob": 0.5
+  },
+  {
+    "id": "006",
+    "cn_name": "衝浪鴨",
+    "en_name": "fuack",
+    "power": 1330,
+    "male_prob": 0.5
+  },
+  {
+    "id": "007",
+    "cn_name": "伏特喵",
+    "en_name": "sparkit",
+    "power": 1410,
+    "male_prob": 0.5
+  },
+  {
+    "id": "008",
+    "cn_name": "新葉猿",
+    "en_name": "tanzee",
+    "power": 1250,
+    "male_prob": 0.5
+  },
+  {
+    "id": "009",
+    "cn_name": "燎火鹿",
+    "en_name": "rooby",
+    "power": 1155,
+    "male_prob": 0.5
+  },
+  {
+    "id": "010",
+    "cn_name": "企丸丸",
+    "en_name": "pengullet",
+    "power": 1350,
+    "male_prob": 0.5
+  },
+  {
+    "id": "011",
+    "cn_name": "企丸王",
+    "en_name": "penking",
+    "power": 520,
+    "male_prob": 0.5
+  },
+  {
+    "id": "012",
+    "cn_name": "電棘鼠",
+    "en_name": "jolthog",
+    "power": 1370,
+    "male_prob": 0.5
+  },
+  {
+    "id": "012B",
+    "cn_name": "電棘鼠 (冰)",
+    "en_name": "jolthog cryst",
+    "power": 1360,
+    "male_prob": 0.5
+  },
+  {
+    "id": "013",
+    "cn_name": "葉泥泥",
+    "en_name": "gumoss",
+    "power": 1240,
+    "male_prob": 0.5
+  },
+  {
+    "id": "013B",
+    "cn_name": null,
+    "en_name": "gumoss (special)",
+    "power": 1240,
+    "male_prob": 0.5
+  },
+  {
+    "id": "014",
+    "cn_name": "玉藻狐",
+    "en_name": "vixy",
+    "power": 1450,
+    "male_prob": 0.5
+  },
+  {
+    "id": "015",
+    "cn_name": "啼卡爾",
+    "en_name": "hoocrates",
+    "power": 1390,
+    "male_prob": 0.5
+  },
+  {
+    "id": "016",
+    "cn_name": "壺小象",
+    "en_name": "teafant",
+    "power": 1490,
+    "male_prob": 0.5
+  },
+  {
+    "id": "017",
+    "cn_name": "瞅什魔",
+    "en_name": "depresso",
+    "power": 1380,
+    "male_prob": 0.5
+  },
+  {
+    "id": "018",
+    "cn_name": "米露菲",
+    "en_name": "cremis",
+    "power": 1455,
+    "male_prob": 0.5
+  },
+  {
+    "id": "019",
+    "cn_name": "寐魔",
+    "en_name": "daedream",
+    "power": 1230,
+    "male_prob": 0.5
+  },
+  {
+    "id": "020",
+    "cn_name": "草莽豬",
+    "en_name": "rushoar",
+    "power": 1130,
+    "male_prob": 0.5
+  },
+  {
+    "id": "021",
+    "cn_name": "露娜蒂",
+    "en_name": "nox",
+    "power": 1180,
+    "male_prob": 0.5
+  },
+  {
+    "id": "022",
+    "cn_name": "遁地鼠",
+    "en_name": "fuddler",
+    "power": 1220,
+    "male_prob": 0.5
+  },
+  {
+    "id": "023",
+    "cn_name": "勾魂魷",
+    "en_name": "killamari",
+    "power": 1290,
+    "male_prob": 0.5
+  },
+  {
+    "id": "024",
+    "cn_name": "喵絲特",
+    "en_name": "mau",
+    "power": 1480,
+    "male_prob": 0.5
+  },
+  {
+    "id": "024B",
+    "cn_name": "冰絲特 (冰)",
+    "en_name": "mau cryst",
+    "power": 1440,
+    "male_prob": 0.5
+  },
+  {
+    "id": "025",
+    "cn_name": "魯米兒",
+    "en_name": "celaray",
+    "power": 870,
+    "male_prob": 0.5
+  },
+  {
+    "id": "026",
+    "cn_name": "獵狼",
+    "en_name": "direhowl",
+    "power": 1060,
+    "male_prob": 0.5
+  },
+  {
+    "id": "027",
+    "cn_name": "炸蛋鳥",
+    "en_name": "tocotoco",
+    "power": 1340,
+    "male_prob": 0.5
+  },
+  {
+    "id": "028",
+    "cn_name": "波娜兔",
+    "en_name": "flopie",
+    "power": 1280,
+    "male_prob": 0.5
+  },
+  {
+    "id": "029",
+    "cn_name": "波霸牛",
+    "en_name": "mozzarina",
+    "power": 910,
+    "male_prob": "20"
+  },
+  {
+    "id": "030",
+    "cn_name": "荊棘魔仙",
+    "en_name": "bristla",
+    "power": 1320,
+    "male_prob": 0.5
+  },
+  {
+    "id": "031",
+    "cn_name": "鯊小子",
+    "en_name": "gobfin",
+    "power": 1090,
+    "male_prob": 0.5
+  },
+  {
+    "id": "031B",
+    "cn_name": "紅小鯊 (火)",
+    "en_name": "gobfin ignis",
+    "power": 1100,
+    "male_prob": 0.5
+  },
+  {
+    "id": "032",
+    "cn_name": "吊縛靈",
+    "en_name": "hangyu",
+    "power": 1420,
+    "male_prob": 0.5
+  },
+  {
+    "id": "032B",
+    "cn_name": "冰縛靈 (冰)",
+    "en_name": "hangyu cryst",
+    "power": 1422,
+    "male_prob": 0.5
+  },
+  {
+    "id": "033",
+    "cn_name": "葉胖達",
+    "en_name": "mossanda",
+    "power": 430,
+    "male_prob": 0.5
+  },
+  {
+    "id": "033B",
+    "cn_name": "雷胖達 (雷)",
+    "en_name": "mossanda lux",
+    "power": 390,
+    "male_prob": 0.5
+  },
+  {
+    "id": "034",
+    "cn_name": "棉花糖",
+    "en_name": "woolipop",
+    "power": 1190,
+    "male_prob": 0.5
+  },
+  {
+    "id": "035",
+    "cn_name": "灌木羊",
+    "en_name": "caprity",
+    "power": 930,
+    "male_prob": 0.5
+  },
+  {
+    "id": "036",
+    "cn_name": "美露帕",
+    "en_name": "melpaca",
+    "power": 890,
+    "male_prob": 0.5
+  },
+  {
+    "id": "037",
+    "cn_name": "紫霞鹿",
+    "en_name": "eikthyrdeer",
+    "power": 920,
+    "male_prob": 0.5
+  },
+  {
+    "id": "037B",
+    "cn_name": "祈岳鹿 (地)",
+    "en_name": "eikthyrdeer terra",
+    "power": 900,
+    "male_prob": 0.5
+  },
+  {
+    "id": "038",
+    "cn_name": "疾風隼",
+    "en_name": "nitewing",
+    "power": 420,
+    "male_prob": 0.5
+  },
+  {
+    "id": "039",
+    "cn_name": "姬小兔",
+    "en_name": "ribunny",
+    "power": 1310,
+    "male_prob": 0.5
+  },
+  {
+    "id": "040",
+    "cn_name": "炎魔羊",
+    "en_name": "incineram",
+    "power": 590,
+    "male_prob": 0.5
+  },
+  {
+    "id": "040B",
+    "cn_name": "暗魔羊 (暗)",
+    "en_name": "incineram noct",
+    "power": 580,
+    "male_prob": 0.5
+  },
+  {
+    "id": "041",
+    "cn_name": "幻悅蝶",
+    "en_name": "cinnamoth",
+    "power": 490,
+    "male_prob": 0.5
+  },
+  {
+    "id": "042",
+    "cn_name": "熾焰牛",
+    "en_name": "arsox",
+    "power": 790,
+    "male_prob": 0.5
+  },
+  {
+    "id": "043",
+    "cn_name": "趴趴鯰",
+    "en_name": "dumud",
+    "power": 895,
+    "male_prob": 0.5
+  },
+  {
+    "id": "044",
+    "cn_name": "黑鴉隱士",
+    "en_name": "cawgnito",
+    "power": 1080,
+    "male_prob": 0.5
+  },
+  {
+    "id": "045",
+    "cn_name": "龐克蜥",
+    "en_name": "leezpunk",
+    "power": 1120,
+    "male_prob": 0.5
+  },
+  {
+    "id": "045B",
+    "cn_name": "熱血蜥 (火)",
+    "en_name": "leezpunk ignis",
+    "power": 1140,
+    "male_prob": 0.5
+  },
+  {
+    "id": "046",
+    "cn_name": "月鐮魔",
+    "en_name": "loupmoon",
+    "power": 950,
+    "male_prob": 0.5
+  },
+  {
+    "id": "047",
+    "cn_name": "天擒鳥",
+    "en_name": "galeclaw",
+    "power": 1030,
+    "male_prob": 0.5
+  },
+  {
+    "id": "048",
+    "cn_name": "羽箭射手",
+    "en_name": "robinquill",
+    "power": 1020,
+    "male_prob": 0.5
+  },
+  {
+    "id": "048B",
+    "cn_name": "山岳射手 (草+地)",
+    "en_name": "robinquill terra",
+    "power": 1000,
+    "male_prob": 0.5
+  },
+  {
+    "id": "049",
+    "cn_name": "鐵拳猿",
+    "en_name": "gorirat",
+    "power": 1040,
+    "male_prob": 0.5
+  },
+  {
+    "id": "050",
+    "cn_name": "騎士蜂",
+    "en_name": "beegarde",
+    "power": 1070,
+    "male_prob": "10"
+  },
+  {
+    "id": "051",
+    "cn_name": "女皇蜂",
+    "en_name": "elizabee",
+    "power": 330,
+    "male_prob": "10"
+  },
+  {
+    "id": "052",
+    "cn_name": "笑魘貓",
+    "en_name": "grintale",
+    "power": 510,
+    "male_prob": 0.5
+  },
+  {
+    "id": "053",
+    "cn_name": "毛撣兒",
+    "en_name": "swee",
+    "power": 1300,
+    "male_prob": 0.5
+  },
+  {
+    "id": "054",
+    "cn_name": "毛老爹",
+    "en_name": "sweepa",
+    "power": 410,
+    "male_prob": 0.5
+  },
+  {
+    "id": "055",
+    "cn_name": "疾旋鼬",
+    "en_name": "chillet",
+    "power": 800,
+    "male_prob": 0.5
+  },
+  {
+    "id": "056",
+    "cn_name": "雷角馬",
+    "en_name": "univolt",
+    "power": 680,
+    "male_prob": 0.5
+  },
+  {
+    "id": "057",
+    "cn_name": "吹雪狐",
+    "en_name": "foxcicle",
+    "power": 760,
+    "male_prob": 0.5
+  },
+  {
+    "id": "058",
+    "cn_name": "火麒麟",
+    "en_name": "pyrin",
+    "power": 360,
+    "male_prob": 0.5
+  },
+  {
+    "id": "058B",
+    "cn_name": "邪麒麟 (火+暗)",
+    "en_name": "pyrin noct",
+    "power": 240,
+    "male_prob": 0.5
+  },
+  {
+    "id": "059",
+    "cn_name": "嚴冬鹿",
+    "en_name": "reindrix",
+    "power": 880,
+    "male_prob": 0.5
+  },
+  {
+    "id": "060",
+    "cn_name": "霹靂犬",
+    "en_name": "rayhound",
+    "power": 740,
+    "male_prob": 0.5
+  },
+  {
+    "id": "061",
+    "cn_name": "蒼焰狼",
+    "en_name": "kitsun",
+    "power": 830,
+    "male_prob": 0.5
+  },
+  {
+    "id": "062",
+    "cn_name": "雷鳴童子",
+    "en_name": "dazzi",
+    "power": 1210,
+    "male_prob": "20"
+  },
+  {
+    "id": "063",
+    "cn_name": "秘斯媞雅",
+    "en_name": "lunaris",
+    "power": 1110,
+    "male_prob": 0.5
+  },
+  {
+    "id": "064",
+    "cn_name": "花冠龍",
+    "en_name": "dinossom",
+    "power": 820,
+    "male_prob": 0.5
+  },
+  {
+    "id": "064B",
+    "cn_name": "雷冠龍 (雷+龍)",
+    "en_name": "dinossom lux",
+    "power": 810,
+    "male_prob": 0.5
+  },
+  {
+    "id": "065",
+    "cn_name": "流沙蛇",
+    "en_name": "surfent",
+    "power": 560,
+    "male_prob": 0.5
+  },
+  {
+    "id": "065B",
+    "cn_name": null,
+    "en_name": "surfent terra",
+    "power": 550,
+    "male_prob": 0.5
+  },
+  {
+    "id": "066",
+    "cn_name": "噬魂獸",
+    "en_name": "maraith",
+    "power": 1150,
+    "male_prob": 0.5
+  },
+  {
+    "id": "067",
+    "cn_name": "碎岩龜",
+    "en_name": "digtoise",
+    "power": 850,
+    "male_prob": 0.5
+  },
+  {
+    "id": "068",
+    "cn_name": "貓蝠怪",
+    "en_name": "tombat",
+    "power": 750,
+    "male_prob": 0.5
+  },
+  {
+    "id": "069",
+    "cn_name": "博愛蜥",
+    "en_name": "lovander",
+    "power": 940,
+    "male_prob": "30"
+  },
+  {
+    "id": "070",
+    "cn_name": "融焰娘",
+    "en_name": "flambelle",
+    "power": 1405,
+    "male_prob": 0.5
+  },
+  {
+    "id": "071",
+    "cn_name": "烽歌龍",
+    "en_name": "vanwyrm",
+    "power": 660,
+    "male_prob": 0.5
+  },
+  {
+    "id": "071B",
+    "cn_name": "霜歌龍 (冰+暗)",
+    "en_name": "vanwyrm cryst",
+    "power": 620,
+    "male_prob": 0.5
+  },
+  {
+    "id": "072",
+    "cn_name": "浪刃武士",
+    "en_name": "bushi",
+    "power": 640,
+    "male_prob": 0.5
+  },
+  {
+    "id": "073",
+    "cn_name": "迅雷鳥",
+    "en_name": "beakon",
+    "power": 220,
+    "male_prob": 0.5
+  },
+  {
+    "id": "074",
+    "cn_name": "燧火鳥",
+    "en_name": "ragnahawk",
+    "power": 380,
+    "male_prob": 0.5
+  },
+  {
+    "id": "075",
+    "cn_name": "暗巫貓",
+    "en_name": "katress",
+    "power": 700,
+    "male_prob": 0.5
+  },
+  {
+    "id": "076",
+    "cn_name": "焰巫狐",
+    "en_name": "wixen",
+    "power": 1160,
+    "male_prob": 0.5
+  },
+  {
+    "id": "077",
+    "cn_name": "踏春兔",
+    "en_name": "verdash",
+    "power": 990,
+    "male_prob": 0.5
+  },
+  {
+    "id": "078",
+    "cn_name": "薇莉塔",
+    "en_name": "vaelet",
+    "power": 1050,
+    "male_prob": 0.5
+  },
+  {
+    "id": "079",
+    "cn_name": "綢笠蛾",
+    "en_name": "sibelyx",
+    "power": 450,
+    "male_prob": 0.5
+  },
+  {
+    "id": "080",
+    "cn_name": "精靈龍",
+    "en_name": "elphidran",
+    "power": 540,
+    "male_prob": 0.5
+  },
+  {
+    "id": "080B",
+    "cn_name": "水靈龍 (龍)",
+    "en_name": "elphidran aqua",
+    "power": 530,
+    "male_prob": 0.5
+  },
+  {
+    "id": "081",
+    "cn_name": "火靈兒",
+    "en_name": "kelpsea",
+    "power": 1260,
+    "male_prob": 0.5
+  },
+  {
+    "id": "081B",
+    "cn_name": null,
+    "en_name": "kelpsea ignis",
+    "power": 1270,
+    "male_prob": 0.5
+  },
+  {
+    "id": "082",
+    "cn_name": "碧海龍",
+    "en_name": "azurobe",
+    "power": 500,
+    "male_prob": 0.5
+  },
+  {
+    "id": "083",
+    "cn_name": "冰棘獸",
+    "en_name": "cryolinx",
+    "power": 130,
+    "male_prob": 0.5
+  },
+  {
+    "id": "084",
+    "cn_name": "獄焰王",
+    "en_name": "blazehowl",
+    "power": 710,
+    "male_prob": 0.5
+  },
+  {
+    "id": "084B",
+    "cn_name": "獄閻王 (火+暗)",
+    "en_name": "blazehowl noct",
+    "power": 670,
+    "male_prob": 0.5
+  },
+  {
+    "id": "085",
+    "cn_name": "佩克龍",
+    "en_name": "relaxaurus",
+    "power": 280,
+    "male_prob": 0.5
+  },
+  {
+    "id": "085B",
+    "cn_name": "派克龍 (龍+雷)",
+    "en_name": "relaxaurus lux",
+    "power": 270,
+    "male_prob": 0.5
+  },
+  {
+    "id": "086",
+    "cn_name": "連理龍",
+    "en_name": "broncherry",
+    "power": 860,
+    "male_prob": 0.5
+  },
+  {
+    "id": "086B",
+    "cn_name": "海誓龍 (草+水)",
+    "en_name": "broncherry aqua",
+    "power": 840,
+    "male_prob": 0.5
+  },
+  {
+    "id": "087",
+    "cn_name": "花麗娜",
+    "en_name": "petallia",
+    "power": 780,
+    "male_prob": 0.5
+  },
+  {
+    "id": "088",
+    "cn_name": "熔岩獸",
+    "en_name": "reptyro",
+    "power": 320,
+    "male_prob": 0.5
+  },
+  {
+    "id": "088B",
+    "cn_name": "寒霜獸 (冰+地)",
+    "en_name": "ice reptyro",
+    "power": 230,
+    "male_prob": 0.5
+  },
+  {
+    "id": "089",
+    "cn_name": "君王美露帕",
+    "en_name": "kingpaca",
+    "power": 470,
+    "male_prob": "90"
+  },
+  {
+    "id": "089B",
+    "cn_name": "冰帝美露帕 (冰)",
+    "en_name": "ice kingpaca",
+    "power": 440,
+    "male_prob": "90"
+  },
+  {
+    "id": "090",
+    "cn_name": "森猛獁",
+    "en_name": "mammorest",
+    "power": 300,
+    "male_prob": 0.5
+  },
+  {
+    "id": "090B",
+    "cn_name": "雪猛獁 (冰)",
+    "en_name": "mammorest cryst",
+    "power": 290,
+    "male_prob": 0.5
+  },
+  {
+    "id": "091",
+    "cn_name": "白絨雪怪",
+    "en_name": "wumpo",
+    "power": 460,
+    "male_prob": 0.5
+  },
+  {
+    "id": "091B",
+    "cn_name": "綠苔絨怪 (草)",
+    "en_name": "wumpo botan",
+    "power": 480,
+    "male_prob": 0.5
+  },
+  {
+    "id": "092",
+    "cn_name": "鎧格力斯",
+    "en_name": "warsect",
+    "power": 340,
+    "male_prob": "85"
+  },
+  {
+    "id": "093",
+    "cn_name": "雲海鹿",
+    "en_name": "fenglope",
+    "power": 980,
+    "male_prob": 0.5
+  },
+  {
+    "id": "094",
+    "cn_name": "夜幕魔蝠",
+    "en_name": "felbat",
+    "power": 1010,
+    "male_prob": 0.5
+  },
+  {
+    "id": "095",
+    "cn_name": "天羽龍",
+    "en_name": "quivern",
+    "power": 350,
+    "male_prob": 0.5
+  },
+  {
+    "id": "096",
+    "cn_name": "焰煌",
+    "en_name": "blazamut",
+    "power": 10,
+    "male_prob": 0.5
+  },
+  {
+    "id": "097",
+    "cn_name": "雷冥鳥",
+    "en_name": "helzephyr",
+    "power": 190,
+    "male_prob": 0.5
+  },
+  {
+    "id": "098",
+    "cn_name": "魔淵龍",
+    "en_name": "astegon",
+    "power": 150,
+    "male_prob": 0.5
+  },
+  {
+    "id": "099",
+    "cn_name": "冥鎧蠍",
+    "en_name": "menasting",
+    "power": 260,
+    "male_prob": 0.5
+  },
+  {
+    "id": "100",
+    "cn_name": "阿努比斯",
+    "en_name": "anubis",
+    "power": 570,
+    "male_prob": 0.5
+  },
+  {
+    "id": "101",
+    "cn_name": "覆海龍",
+    "en_name": "jormuntide",
+    "power": 310,
+    "male_prob": 0.5
+  },
+  {
+    "id": "101B",
+    "cn_name": "騰炎龍 (龍+火)",
+    "en_name": "jormuntide ignis",
+    "power": 315,
+    "male_prob": 0.5
+  },
+  {
+    "id": "102",
+    "cn_name": "朱雀",
+    "en_name": "suzaku",
+    "power": 50,
+    "male_prob": 0.5
+  },
+  {
+    "id": "102B",
+    "cn_name": "清雀 (水)",
+    "en_name": "suzaku aqua",
+    "power": 30,
+    "male_prob": 0.5
+  },
+  {
+    "id": "103",
+    "cn_name": "暴電熊",
+    "en_name": "grizzbolt",
+    "power": 200,
+    "male_prob": 0.5
+  },
+  {
+    "id": "104",
+    "cn_name": "百合女王",
+    "en_name": "lyleen",
+    "power": 250,
+    "male_prob": "30"
+  },
+  {
+    "id": "104B",
+    "cn_name": "黑月女王 (暗)",
+    "en_name": "lyleen noct",
+    "power": 210,
+    "male_prob": "30"
+  },
+  {
+    "id": "105",
+    "cn_name": "荷魯斯",
+    "en_name": "faleris",
+    "power": 370,
+    "male_prob": 0.5
+  },
+  {
+    "id": "106",
+    "cn_name": "波魯杰克斯",
+    "en_name": "orserk",
+    "power": 140,
+    "male_prob": 0.5
+  },
+  {
+    "id": "107",
+    "cn_name": "異構格里芬",
+    "en_name": "shadowbeak",
+    "power": 60,
+    "male_prob": 0.5
+  },
+  {
+    "id": "108",
+    "cn_name": "聖光騎士",
+    "en_name": "paladius",
+    "power": 80,
+    "male_prob": 0.5
+  },
+  {
+    "id": "109",
+    "cn_name": "混沌騎士",
+    "en_name": "necromus",
+    "power": 70,
+    "male_prob": 0.5
+  },
+  {
+    "id": "110",
+    "cn_name": "喚冬獸",
+    "en_name": "frostallion",
+    "power": 120,
+    "male_prob": 0.5
+  },
+  {
+    "id": "110B",
+    "cn_name": "喚夜獸 (暗)",
+    "en_name": "frostallion noct",
+    "power": 100,
+    "male_prob": 0.5
+  },
+  {
+    "id": "111",
+    "cn_name": "空渦龍",
+    "en_name": "jetragon",
+    "power": 90,
+    "male_prob": 0.5
+  }
+]
